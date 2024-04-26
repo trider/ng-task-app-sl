@@ -29,6 +29,5 @@ export class LoginComponent implements OnInit{
 
   onSubmit() {    
     alert('Form submitted');
-    this.router.navigate(['/home']);
   }
 }

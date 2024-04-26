@@ -1,24 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, UntypedFormGroup, UntypedFormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
 export class LoginComponent implements OnInit{
-
-  loginForm = new FormGroup({
-    email: new FormControl(''),
-    password: new FormControl(''),
+  loginForm = new UntypedFormGroup({
+    name: new UntypedFormControl(),
+    password: new UntypedFormControl()
   });
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
+    private fb: FormBuilder,
   ) { }
 
   ngOnInit(): void {
@@ -28,7 +28,6 @@ export class LoginComponent implements OnInit{
 
 
   onSubmit() {    
-    alert('Form submitted');
-    this.router.navigate(['/home']);
+   this.router.navigate(['/home']);
   }
 }

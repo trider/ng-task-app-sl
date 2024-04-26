@@ -11,9 +11,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit{
 
-  loginForm = new FormGroup({
-    email: new FormControl(''),
-    password: new FormControl(''),
+  profileForm = new FormGroup({
+    firstName: new FormControl(''),
+    lastName: new FormControl(''),
   });
 
   constructor(
@@ -29,6 +29,5 @@ export class LoginComponent implements OnInit{
 
   onSubmit() {    
     alert('Form submitted');
-    this.router.navigate(['/home']);
   }
 }
