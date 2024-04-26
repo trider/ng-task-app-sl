@@ -7,7 +7,6 @@ const routes: Routes = [
     // component: LayoutContainerComponent,
     // canActivate: [AuthGuard],
     children: [
-      { path: '', redirectTo: '/main/login', pathMatch: 'full' },
       {
         path: "main",
         loadChildren: () =>
