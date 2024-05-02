@@ -73,8 +73,20 @@ export class TableComponent implements OnInit {
       ];
     }
     else if(this.title === "Edit Task"){
-     
+     this.tableData = this.tableData.map((item:any) => {
+       if(item.id === this.item.id){
+         return {
+           ...item,
+           name: this.taskForm.value.name,
+           description: this.taskForm.value.description,
+           status: this.taskForm.value.status,
+           updated: new Date().toISOString(),
+         }
+       }
+       return item;
+     })
     }
+    this.modalService.dismissAll();
   }
 
   deleteItem(item:any){
