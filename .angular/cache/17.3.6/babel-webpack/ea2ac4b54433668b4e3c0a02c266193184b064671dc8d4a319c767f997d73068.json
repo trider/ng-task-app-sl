@@ -1,1 +1,0 @@
-{"ast":null,"code":"export let GlobalVariables = /*#__PURE__*/(() => {\n  class GlobalVariables {\n    static #_ = this.appVersion = '0.1.0';\n  }\n  return GlobalVariables;\n})();","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}
