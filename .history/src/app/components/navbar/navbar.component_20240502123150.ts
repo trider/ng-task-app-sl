@@ -12,7 +12,7 @@ import { CommonModule, JsonPipe } from '@angular/common';
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
-  showNav: boolean = false;
+  showNav: boolean = true;
   constructor() { }
 
 }
