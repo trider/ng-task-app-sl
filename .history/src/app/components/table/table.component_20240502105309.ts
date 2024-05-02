@@ -86,7 +86,6 @@ export class TableComponent implements OnInit {
        return item;
      })
     }
-    this.modalService.dismissAll();
   }
 
   deleteItem(item:any){
