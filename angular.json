@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "my-test-app": {
+    "ng-task-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/my-test-app",
+            "outputPath": "dist/ng-task-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -53,7 +53,7 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
+                  "maximumWarning": "800kb",
                   "maximumError": "1mb"
                 },
                 {
@@ -68,24 +68,41 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "buildTarget": "my-test-app:build"
+            "buildTarget": "ng-task-app:build"
           },
           "configurations": {
             "production": {
-              "buildTarget": "my-test-app:build:production"
+              "buildTarget": "ng-task-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "my-test-app:build"
+            "buildTarget": "ng-task-app:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "ng-task-app": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
@@ -116,16 +133,19 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "my-test-app:serve"
+            "devServerTarget": "ng-task-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "my-test-app:serve:production"
+              "devServerTarget": "ng-task-app:serve:production"
             }
           }
         },
         "deploy": {
-          "builder": "angular-cli-ghpages:deploy"
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "buildTarget": "ng-task-app:build:production"
+          }
         }
       }
     }
