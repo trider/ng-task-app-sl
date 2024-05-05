@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ng-task-app": {
+    "my-test-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ng-task-app/browser",
+            "outputPath": "dist/my-test-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -68,18 +68,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "buildTarget": "ng-task-app:build"
+            "buildTarget": "my-test-app:build"
           },
           "configurations": {
             "production": {
-              "buildTarget": "ng-task-app:build:production"
+              "buildTarget": "my-test-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "ng-task-app:build"
+            "buildTarget": "my-test-app:build"
           }
         },
         "test": {
@@ -116,16 +116,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ng-task-app:serve"
+            "devServerTarget": "my-test-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "ng-task-app:serve:production"
+              "devServerTarget": "my-test-app:serve:production"
             }
           }
         },
         "deploy": {
-          "builder": "angular-cli-ghpages:deploy"
+          "builder": "angular-cli-ghpages:deploy",
         }
       }
     }
