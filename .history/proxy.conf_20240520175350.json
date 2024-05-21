@@ -1,0 +1,14 @@
+{
+  "/graphql_refactored": {
+    "target": "http://127.0.0.1:4003",
+     "secure": false,
+     "changeOrigin": true,
+     "pathRewrite": {
+       "/graphql_refactored": ""
+     }
+  }
+
+  
+
+
+}

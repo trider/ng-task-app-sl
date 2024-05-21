@@ -1,0 +1,24 @@
+{
+  "/users": {
+    "target": "http://127.0.0.1:5000",
+    "secure": false,
+     "changeOrigin":true,
+    "pathRewrite": {
+      "^/login": "/api/users/"
+    }
+  },
+  "/tasks": {
+    "target": "http://127.0.0.1:5000",
+    "secure": false,
+     "changeOrigin":true,
+    "pathRewrite": {
+      "^/tasks": "/api/tasks/"
+    }
+  }
+ 
+
+    
+  
+
+
+}
