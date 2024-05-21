@@ -7,11 +7,15 @@ import { Users } from '@app/common/data/users';
 import { HttpClientService } from '@app/services/http-service/http-service.service';
 
 
+
+
+
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [
     ReactiveFormsModule,
+    
 
   
   
@@ -27,13 +31,13 @@ export class LoginComponent implements OnInit{
 
   loginForm = new FormGroup({
     email: new FormControl('jonnygold@gmail.com'),
-    password: new FormControl(''),
+    password: new FormControl('1234'),
   });
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    
+    private httpService: HttpClientService
   ) { }
 
   ngOnInit(): void {
@@ -44,14 +48,18 @@ export class LoginComponent implements OnInit{
 
   onSubmit() {    
 
-    this.user = this.users.filter((user:any) => user.email === this.loginForm.value.email && user.password === this.loginForm.value.password)[0];
-    if(this.user !== null ){
-      alert(this.user.userName + ' logged in')
-      console.log('User found\n\n', this.user);
-      sessionStorage.setItem('user', JSON.stringify(this.user));
-      this.router.navigate(['/home']);
+    this.httpService.postServiceData('/login', this.loginForm.value).subscribe((response:any) => { 
 
-    }
-  
+      console.log('response', response);
+      if(response.isLoggedIn){
+        alert(JSON.stringify(response));
+        sessionStorage.setItem('user', JSON.stringify(response));
+        this.router.navigate(['/home']);
+      }
+    })
+    
+
   }
+
+
 }
