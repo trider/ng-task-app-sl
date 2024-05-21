@@ -43,10 +43,7 @@ export class HomeComponent implements OnInit{
   ) { }
   ngOnInit(): void {
     this.user = JSON.parse(sessionStorage.getItem('user') || '{}');
-    const path:string = '/api/tasks/get/tasks/jonnygold'
-    this.httpService.getServiceData(`/tasks/get/tasks/${this.user.userName}`).subscribe(resp => {
-      this.tableData = resp;
-    });
+    this.tableData = this.tasks.filter((task:any) => task.user === this.user.userName);
   }
 
 
