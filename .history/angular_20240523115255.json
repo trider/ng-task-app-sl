@@ -131,7 +131,7 @@
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {
-            "repo": "https://github.com/trider/ng-task-app-sl.git"
+            "buildTarget": "my-test-app:build:production"
           }
         }
       }
