@@ -1,0 +1,37 @@
+import { NgModule } from '@angular/core';
+import { ServerModule } from '@angular/platform-server';
+
+import { AppModule } from './app.module';
+import { BrowserModule, provideClientHydration, withHttpTransferCacheOptions } from '@angular/platform-browser';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { MainModule } from './main/main.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
+import { TransferHttpModule, TransferHttpService } from '@gorniv/ngx-universal';
+
+
+@NgModule({
+  
+  imports: [
+    AppModule,
+    ServerModule,
+    BrowserModule,
+    AppRoutingModule,
+    MainModule,
+    NgbModule,
+    HttpClientModule,
+    TransferHttpModule
+  ],
+  providers: [
+    TransferHttpService,
+    provideClientHydration(
+      withHttpTransferCacheOptions({
+        includePostRequests: true,
+      }),
+    )
+  ],
+  bootstrap: [AppComponent],
+})
+export class AppServerModule {}
