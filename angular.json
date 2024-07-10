@@ -1,4 +1,9 @@
 {
+  "cli": {
+    "cache": {
+      "enabled": false
+    }
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
